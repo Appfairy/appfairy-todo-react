@@ -9,8 +9,8 @@
   top: calc(0% + 0px);
   width: calc(0% + 700px);
   height: calc(0% + 150px);
-  overflow: hidden;
   transform: translate(calc(0.000322% + -350px), calc(-9.57913e-16% + 0px)) rotate(0rad);
+  overflow: hidden;
 }
 
 .todo-list > *:nth-child(1) > *:nth-child(2) {

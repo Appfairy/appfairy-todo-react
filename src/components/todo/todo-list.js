@@ -1,6 +1,7 @@
 import Appfairy from 'appfairy';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import TodoItem from './todo-item';
 
 class TodoList extends React.Component {
   state = {
@@ -9,14 +10,16 @@ class TodoList extends React.Component {
 
   render() {
     return (
-      <af_raw-todo-list {ref => ref.bind(this)}>
+      <af_view-todo-list>
         <add-btn onClick={this.addTodo.bind(this)} />
         <add-input ref={ref => this.addInput = ref} />
 
-        {this.state.todos.map((todo, index) => (
-          <af-todo-item key={index} />
-        ))}
-      </af_raw-todo-list>
+        <todos>
+          {this.state.todos.map((todo, index) => (
+            <af-li key={index} index={index} />
+          ))}
+        </todos>
+      </af_view-todo-list>
     );
   }
 
@@ -35,8 +38,8 @@ class TodoList extends React.Component {
   }
 }
 
-Appfairy.Controller.define('todo-list', (ctrl, data) => {
-  ReactDOM.render(<TodoList />, ctrl, data);
+Appfairy.Component.define('todo-list', (container, data) => {
+  return ReactDOM.render(<TodoList {...data} />, container);
 });
 
 export default TodoList;

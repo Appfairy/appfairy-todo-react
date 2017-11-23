@@ -10,15 +10,15 @@ class TodoItem extends React.Component {
 
   render() {
     return (
-      <af_raw-todo-item>
+      <af_view-todo-item>
         <check-box onClick={this.toggleCheck.bind(this)}>
           {this.state.checked && <check />}
         </check-box>
 
         <todo>{this.state.todo}</todo>
 
-        <rm-btn af_submit-click="removeItem(key)" />
-      </af_raw-todo-item>
+        <rm-btn af-click="removeItem(index)" />
+      </af_view-todo-item>
     );
   }
 
@@ -29,8 +29,8 @@ class TodoItem extends React.Component {
   }
 }
 
-Appfairy.Controller.define('todo-item', (ctrl, data) => {
-  ReactDOM.render(<TodoItem />, ctrl, data);
+Appfairy.Component.define('todo-item', (container, data) => {
+  return ReactDOM.render(<TodoItem {...data} />, container);
 });
 
 export default TodoItem;
