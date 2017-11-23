@@ -17,7 +17,7 @@ class TodoItem extends React.Component {
 
         <todo>{this.state.todo}</todo>
 
-        <rm-btn af-click="removeItem(index)" />
+        <rm-btn onClick={this.afScope.removeItem(this.props.index)} />
       </af_view-todo-item>
     );
   }

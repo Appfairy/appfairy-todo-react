@@ -8,24 +8,32 @@ class TodoList extends React.Component {
     todos: []
   }
 
+  constructor(props) {
+    super(props);
+
+    this.afChildScopes = {
+      todo: {
+        removeTodo: this.removeTodo.bind(this)
+      }
+    };
+  }
+
   render() {
     return (
       <af_view-todo-list>
-        <add-btn onClick={this.addTodo.bind(this)} />
+        <add-btn onClick={onAddBtnClick.bind(this)} />
         <add-input ref={ref => this.addInput = ref} />
 
         <todos>
           {this.state.todos.map((todo, index) => (
-            <af-li key={index} index={index} />
+            <af-li key={index} index={index} scope="todo" />
           ))}
         </todos>
       </af_view-todo-list>
     );
   }
 
-  addTodo() {
-    const todo = this.addInput.value;
-
+  addTodo(todo) {
     this.state.todos.push(todo);
 
     this.forceUpdate();
@@ -36,6 +44,10 @@ class TodoList extends React.Component {
 
     this.forceUpdate();
   }
+}
+
+function onAddBtnClick() {
+  this.addTodo(this.addInput.value);
 }
 
 Appfairy.Component.define('todo-list', (container, data) => {
