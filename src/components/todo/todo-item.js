@@ -29,8 +29,10 @@ class TodoItem extends React.Component {
   }
 }
 
-Appfairy.Component.define('todo-item', (container, data) => {
-  return ReactDOM.render(<TodoItem {...data} />, container);
+Appfairy.Controller.get('todo-item').extend({
+  render(container, data) {
+    return ReactDOM.render(<TodoItem {...data} />, container);
+  }
 });
 
 export default TodoItem;

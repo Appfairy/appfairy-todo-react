@@ -50,8 +50,10 @@ function onAddBtnClick() {
   this.addTodo(this.addInput.value);
 }
 
-Appfairy.Component.define('todo-list', (container, data) => {
-  return ReactDOM.render(<TodoList {...data} />, container);
+Appfairy.Controller.get('todo-list').extend({
+  render(container, data) {
+    return ReactDOM.render(<TodoList {...data} />, container);
+  }
 });
 
 export default TodoList;
