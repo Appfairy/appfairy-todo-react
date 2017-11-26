@@ -1,7 +1,6 @@
 import Appfairy from 'appfairy';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TodoItem from './todo-item';
 
 class TodoList extends React.Component {
   state = {
@@ -10,6 +9,10 @@ class TodoList extends React.Component {
 
   constructor(props) {
     super(props);
+
+    debugger;
+
+    Appfairy.Component.define(this);
 
     this.afChildScopes = {
       todo: {
@@ -26,7 +29,7 @@ class TodoList extends React.Component {
 
         <todos>
           {this.state.todos.map((todo, index) => (
-            <af-li key={index} index={index} scope="todo" />
+            <af-li key={index} index={index} af-scope="todo" />
           ))}
         </todos>
       </af_view-todo-list>
@@ -50,9 +53,9 @@ function onAddBtnClick() {
   this.addTodo(this.addInput.value);
 }
 
-Appfairy.Controller.get('todo-list').extend({
+Appfairy.Element.get('todo-list').extend({
   render(container, data) {
-    return ReactDOM.render(<TodoList {...data} />, container);
+    ReactDOM.render(<TodoList {...data} />, container);
   }
 });
 
