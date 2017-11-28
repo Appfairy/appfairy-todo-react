@@ -8,14 +8,6 @@ class TodoItem extends React.Component {
     todo: ''
   }
 
-  constructor(props) {
-    super(props);
-
-    debugger;
-
-    Appfairy.Component.define(this);
-  }
-
   render() {
     return (
       <af_view-todo-item>
@@ -38,8 +30,8 @@ class TodoItem extends React.Component {
 }
 
 Appfairy.Element.get('todo-item').extend({
-  render(container, data) {
-    ReactDOM.render(<TodoItem {...data} />, container);
+  render(container, data, callback) {
+    ReactDOM.render(<TodoItem {...data} />, container, callback);
   }
 });
 

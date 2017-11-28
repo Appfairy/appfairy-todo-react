@@ -10,10 +10,6 @@ class TodoList extends React.Component {
   constructor(props) {
     super(props);
 
-    debugger;
-
-    Appfairy.Component.define(this);
-
     this.afChildScopes = {
       todo: {
         removeTodo: this.removeTodo.bind(this)
@@ -54,8 +50,8 @@ function onAddBtnClick() {
 }
 
 Appfairy.Element.get('todo-list').extend({
-  render(container, data) {
-    ReactDOM.render(<TodoList {...data} />, container);
+  render(container, data, callback) {
+    ReactDOM.render(<TodoList {...data} />, container, callback);
   }
 });
 
