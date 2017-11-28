@@ -21,7 +21,7 @@ class TodoList extends React.Component {
     return (
       <af_view-todo-list>
         <add-btn onClick={onAddBtnClick.bind(this)} />
-        <add-input ref={ref => this.addInput = ref} />
+        <todo-input ref={ref => this.addInput = ref} />
 
         <todos>
           {this.state.todos.map((todo, index) => (
