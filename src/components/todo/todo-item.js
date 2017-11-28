@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 class TodoItem extends React.Component {
   state = {
     checked: false,
-    todo: ''
+    todo: '',
   }
 
   render() {
@@ -17,7 +17,7 @@ class TodoItem extends React.Component {
 
         <todo>{this.state.todo}</todo>
 
-        <rm-btn onClick={this.afScope.removeItem(this.props.index)} />
+        <rm-btn onClick={this.props.removeItem(this.props.index)} />
       </af_view-todo-item>
     );
   }

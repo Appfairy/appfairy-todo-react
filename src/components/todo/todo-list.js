@@ -10,9 +10,9 @@ class TodoList extends React.Component {
   constructor(props) {
     super(props);
 
-    this.afChildScopes = {
+    this.afScopes = {
       todo: {
-        removeTodo: this.removeTodo.bind(this)
+        removeTodo: this.removeTodo.bind(this),
       }
     };
   }
@@ -25,7 +25,7 @@ class TodoList extends React.Component {
 
         <todos>
           {this.state.todos.map((todo, index) => (
-            <af-li key={index} index={index} af-scope="todo" />
+            <af-li key={index} scope="todo" data-index={index} />
           ))}
         </todos>
       </af_view-todo-list>
