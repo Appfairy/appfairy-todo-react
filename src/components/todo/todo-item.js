@@ -17,7 +17,7 @@ class TodoItem extends React.Component {
 
         <todo>{this.state.todo}</todo>
 
-        <rm-btn onClick={this.props.removeItem(this.props.index)} />
+        <rm-btn onClick={this.props.removeTodo.bind(this, this.props.index)} />
       </af_view-todo-item>
     );
   }
@@ -31,7 +31,9 @@ class TodoItem extends React.Component {
 
 Appfairy.Element.get('todo-item').extend({
   render(container, data, callback) {
-    ReactDOM.render(<TodoItem {...data} />, container, callback);
+    ReactDOM.render(<TodoItem {...data} />, container, function () {
+      callback(this);
+    });
   }
 });
 

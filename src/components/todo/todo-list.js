@@ -51,7 +51,9 @@ function onAddBtnClick() {
 
 Appfairy.Element.get('todo-list').extend({
   render(container, data, callback) {
-    ReactDOM.render(<TodoList {...data} />, container, callback);
+    ReactDOM.render(<TodoList {...data} />, container, function () {
+      callback(this);
+    });
   }
 });
 
