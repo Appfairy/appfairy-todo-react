@@ -7,7 +7,67 @@ class TodoList extends Appfairy.View(HTMLElement) {
 
     const view = document.createElement('div');
     view.className = 'todo-list';
-    view.innerHTML = `<div _id="af-jaafuiv3" _type="div"><div _id="af-jaafzt2a" _type="text"><span class="_container"><div>New todo</div></span></div><div _id="af-jaag1iyx" _type="text" _ref="add-btn"><span class="_container"><div>➕</div></span></div><div _id="af-jaag47lh" _type="input" _ref="todo-input"><style class="_style">._input { background-color: rgba(255, 255, 255, 0); position: absolute; transform-origin: calc(0% + 0px) calc(50% + 0px) 0px; border-style: solid; border-width: 0px; border-radius: 0px; overflow: hidden; left: calc(0% + 0px); top: calc(50% + 0px); color: rgb(0, 0, 0); font-family: Arial; text-align: start; font-size: 30pt; white-space: nowrap; line-height: calc(100% + 0pt); transform: translate(calc(-6.47825e-16% + 0px), calc(-50% + 0px)) rotate(0rad); display: none; width: 100%; height: 100%; } ._input::placeholder { background-color: rgba(255, 255, 255, 0); position: absolute; transform-origin: calc(0% + 0px) calc(50% + 0px) 0px; border-style: solid; border-width: 0px; border-radius: 0px; overflow: hidden; left: calc(0% + 0px); top: calc(50% + 0px); color: rgb(192, 192, 192); font-family: Arial; text-align: start; font-size: 30pt; white-space: nowrap; line-height: calc(100% + 0pt); }</style><input class="_input" value="
+    view.innerHTML = `<div _id="af-jaafuiv3" _type="div"><div _id="af-jaafzt2a" _type="text"><span class="_container"><div>New todo</div></span></div><div _id="af-jaag1iyx" _type="text" _ref="add-btn"><span class="_container"><div>➕</div></span></div><div _id="af-jaag47lh" _type="input" _ref="todo-input"><style class="_style">._input { background-color: rgba(255, 255, 255, 0); position: absolute; transform-origin: calc(0% + 0px) calc(50% + 0px) 0px; border-style: solid; border-width: 0px; border-radius: 0px; overflow: hidden; left: calc(0% + 0px); top: calc(50% + 0px); color: rgb(0, 0, 0); font-family: Arial; text-align: start; font-size: 30pt; white-space: nowrap; line-height: calc(100% + 0pt); transform: translate(calc(-6.47825e-16% + 0px), calc(-50% + 0px)) rotate(0rad); width: 100%; height: 100%; } ._input::placeholder { background-color: rgba(255, 255, 255, 0); position: absolute; transform-origin: calc(0% + 0px) calc(50% + 0px) 0px; border-style: solid; border-width: 0px; border-radius: 0px; overflow: hidden; left: calc(0% + 0px); top: calc(50% + 0px); color: rgb(192, 192, 192); font-family: Arial; text-align: start; font-size: 30pt; white-space: nowrap; line-height: calc(100% + 0pt); display: none; }</style><input class="_input" value="
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 " placeholder="Type here..."></input></div></div><div _id="af-jaagmacc" _type="ul" _ref="todos" _component="todo-item"><style class="_item-style">._items-container:first-of-type > ._item { position: relative; height: 70px; width: 100%; margin: 0px; display: block; }</style><ul class="_items-container"><af-todo-item class="_item"></af-todo-item><af-todo-item class="_item"></af-todo-item><af-todo-item class="_item"></af-todo-item></ul></div>`;

@@ -24,7 +24,7 @@ class TodoItem extends React.Component {
 
   toggleCheck() {
     this.setState({
-      checked: this.state.checked,
+      checked: !this.state.checked,
     });
   }
 }
