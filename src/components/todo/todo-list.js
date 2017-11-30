@@ -3,6 +3,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 class TodoList extends React.Component {
+  get addInput() {
+    return this._addInput.target;
+  }
+
+  set addInput(ref) {
+    return this._addInput = ref;
+  }
+
   state = {
     todos: []
   }
@@ -25,7 +33,7 @@ class TodoList extends React.Component {
 
         <todos>
           {this.state.todos.map((todo, index) => (
-            <af-li key={index} scope="todo" data-index={index} />
+            <af-li key={index} scope="todo" data-index={index} data-todo={todo} />
           ))}
         </todos>
       </af_view-todo-list>

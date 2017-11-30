@@ -5,7 +5,6 @@ import ReactDOM from 'react-dom';
 class TodoItem extends React.Component {
   state = {
     checked: false,
-    todo: '',
   }
 
   render() {
@@ -15,7 +14,7 @@ class TodoItem extends React.Component {
           {this.state.checked && <check />}
         </check-box>
 
-        <todo>{this.state.todo}</todo>
+        <todo>{this.props.todo}</todo>
 
         <rm-btn onClick={this.props.removeTodo.bind(this, this.props.index)} />
       </af_view-todo-item>
