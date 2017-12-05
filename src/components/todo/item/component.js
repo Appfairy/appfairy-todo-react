@@ -1,6 +1,7 @@
 import Appfairy from 'appfairy';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import TodoItemElement from './element';
 
 class TodoItem extends React.Component {
   constructor(props) {
@@ -43,7 +44,7 @@ class TodoItem extends React.Component {
   }
 }
 
-Appfairy.Element.get('todo-item').extend({
+TodoItemElement.implement({
   render(container, data, callback) {
     ReactDOM.render(<TodoItem {...data} />, container, function () {
       callback(this);

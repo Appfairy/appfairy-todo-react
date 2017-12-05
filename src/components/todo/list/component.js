@@ -1,6 +1,7 @@
 import Appfairy from 'appfairy';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import TodoListElement from './element';
 
 class TodoList extends React.Component {
   get addInput() {
@@ -57,7 +58,7 @@ function onAddBtnClick() {
   this.addTodo(this.addInput.value);
 }
 
-Appfairy.Element.get('todo-list').extend({
+TodoListElement.implement({
   render(container, data, callback) {
     ReactDOM.render(<TodoList {...data} />, container, function () {
       callback(this);
