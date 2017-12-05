@@ -3,8 +3,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 class TodoItem extends React.Component {
-  state = {
-    checked: false,
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      checked: false,
+      todo: props.todo,
+    };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const nextState = {};
+
+    if (nextProps.todo !== this.state.todo) {
+      nextState.todo = nextProps.todo;
+    }
+
+    this.setState(nextState);
   }
 
   render() {
@@ -14,7 +29,7 @@ class TodoItem extends React.Component {
           {this.state.checked && <check />}
         </check-box>
 
-        <todo>{this.props.todo}</todo>
+        <todo>{this.state.todo}</todo>
 
         <rm-btn onClick={this.props.removeTodo.bind(this, this.props.index)} />
       </af_view-todo-item>
