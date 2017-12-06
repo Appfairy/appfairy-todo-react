@@ -1,4 +1,3 @@
-import Appfairy from 'appfairy';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TodoListElement from './element';
@@ -59,6 +58,14 @@ function onAddBtnClick() {
 }
 
 TodoListElement.implement({
+  get options() {
+    return {
+      events: {
+        stopPropagation: true,
+      }
+    };
+  },
+
   render(container, data, callback) {
     ReactDOM.render(<TodoList {...data} />, container, function () {
       callback(this);

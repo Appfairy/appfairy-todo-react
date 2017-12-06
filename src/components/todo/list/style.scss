@@ -1,3 +1,67 @@
-/* eslint import/no-webpack-loader-syntax: off */
-
 @import '../variables';
+
+#af-view {
+  $navbar-height: 100px;
+
+  display: block;
+  height: 100%;
+
+  .navbar {
+    $margin: 10px;
+
+    position: relative;
+    background-color: $navbar-color;
+    color: white;
+    width: $list-width;
+    margin-left: auto;
+    margin-right: auto;
+    height: $navbar-height;
+
+    .instructions {
+      float: left;
+      display: block;
+      margin-top: $margin;
+      margin-left: $margin;
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .add-btn {
+      display: block;
+      float: right;
+      margin-top: $margin;
+      margin-right: $margin;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    .todo-input {
+      position: absolute;
+      width: calc(100% - #{2 * $margin});
+      bottom: $margin;
+      left: $margin;
+      border: none;
+      border-bottom: 1px solid silver;
+      background-color: transparent;
+      font-size: 20px;
+      color: white;
+
+      &:focus {
+        outline: none;
+      }
+
+      &::placeholder {
+        color: silver;
+      }
+    }
+  }
+
+  .todos {
+    padding: 0;
+    margin: 0;
+    width: $list-width;
+    height: calc(100% - #{$navbar-height});
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

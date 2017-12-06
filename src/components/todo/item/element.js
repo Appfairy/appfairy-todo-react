@@ -1,9 +1,8 @@
 import Appfairy from 'appfairy';
-import ReactDOM from 'react-dom';
 import styleSheet from './style.scss'
 import viewHTML from './view.html';
 
-class TodoItemView extends Appfairy.View(HTMLLIElement) {
+class TodoItemView extends Appfairy.View(HTMLElement) {
   initializeStyle(style) {
     style.innerHTML = styleSheet;
   }
