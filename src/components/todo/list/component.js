@@ -29,7 +29,8 @@ class TodoList extends React.Component {
     return (
       <af_view-todo-list>
         <add-btn onClick={onAddBtnClick.bind(this)} />
-        <todo-input ref={ref => this.addInput = ref} />
+        <todo-input onKeyDown={onTodoInputKeyDown.bind(this)}
+                    ref={ref => this._addInput = ref} />
 
         <todos>
           {this.state.todos.map((todo, index) => (
@@ -38,6 +39,12 @@ class TodoList extends React.Component {
         </todos>
       </af_view-todo-list>
     );
+  }
+
+  submitTodoInput() {
+    const value = this.addInput.value;
+    this.addInput.value = '';
+    this.addTodo(value);
   }
 
   addTodo(todo) {
@@ -54,7 +61,19 @@ class TodoList extends React.Component {
 }
 
 function onAddBtnClick() {
-  this.addTodo(this.addInput.value);
+  this.submitTodoInput();
+}
+
+function onTodoInputKeyDown(e) {
+  if (e.key != 'Enter') {
+    return;
+  }
+
+  if (!this.addInput.value) {
+    return;
+  }
+
+  this.submitTodoInput();
 }
 
 TodoListElement.implement({
