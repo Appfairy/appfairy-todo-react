@@ -74,5 +74,9 @@
     height: calc(100% - #{$navbar-height});
     margin-left: auto;
     margin-right: auto;
+
+    > af-todo-item {
+      display: block;
+    }
   }
 }

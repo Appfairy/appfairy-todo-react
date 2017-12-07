@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Transition from 'react-motion-ui-pack'
 import TodoListElement from './element';
 
 class TodoList extends React.Component {
-  get addInput() {
-    return this._addInput.target;
+  get todoInput() {
+    return this._todoInput.target;
   }
 
-  set addInput(ref) {
-    return this._addInput = ref;
+  set todoInput(ref) {
+    return this._todoInput = ref;
   }
 
   state = {
@@ -32,23 +33,31 @@ class TodoList extends React.Component {
       <af_view-todo-list>
         <add-btn onClick={onAddBtnClick.bind(this)} />
         <todo-input onKeyDown={onTodoInputKeyDown.bind(this)}
-                    ref={ref => this._addInput = ref} />
+                    ref={ref => this.todoInput = ref} />
 
-        <todos>
+        <Transition component="todos"
+                    enter={{
+                      opacity: 1,
+                      translateX: 0,
+                    }}
+                    leave={{
+                      opacity: 0,
+                      translateX: 200,
+                    }}>
           {this.state.todos.map(({ id, value }) => (
             <af-li key={id} scope="todo" data-id={id} data-value={value} />
           ))}
-        </todos>
+        </Transition>
       </af_view-todo-list>
     );
   }
 
   submitTodoInput() {
-    const value = this.addInput.value;
+    const value = this.todoInput.value;
 
     if (!value) return;
 
-    this.addInput.value = '';
+    this.todoInput.value = '';
     this.addTodo(value);
   }
 
