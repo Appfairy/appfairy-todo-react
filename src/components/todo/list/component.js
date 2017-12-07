@@ -18,6 +18,8 @@ class TodoList extends React.Component {
   constructor(props) {
     super(props);
 
+    this._currId = 0;
+
     this.afScopes = {
       todo: {
         removeTodo: this.removeTodo.bind(this),
@@ -33,8 +35,8 @@ class TodoList extends React.Component {
                     ref={ref => this._addInput = ref} />
 
         <todos>
-          {this.state.todos.map((todo, index) => (
-            <af-li key={index} scope="todo" data-index={index} data-todo={todo} />
+          {this.state.todos.map(({ id, value }) => (
+            <af-li key={id} scope="todo" data-id={id} data-value={value} />
           ))}
         </todos>
       </af_view-todo-list>
@@ -43,17 +45,28 @@ class TodoList extends React.Component {
 
   submitTodoInput() {
     const value = this.addInput.value;
+
+    if (!value) return;
+
     this.addInput.value = '';
     this.addTodo(value);
   }
 
   addTodo(todo) {
-    this.state.todos.push(todo);
+    this.state.todos.push({
+      id: this._currId++,
+      value: todo,
+    });
 
     this.forceUpdate();
   }
 
-  removeTodo(index) {
+  removeTodo(id) {
+    const todo = this.state.todos.find(todo => todo.id == id);
+
+    if (!todo) return;
+
+    const index = this.state.todos.indexOf(todo);
     this.state.todos.splice(index, 1);
 
     this.forceUpdate();
@@ -66,10 +79,6 @@ function onAddBtnClick() {
 
 function onTodoInputKeyDown(e) {
   if (e.key != 'Enter') {
-    return;
-  }
-
-  if (!this.addInput.value) {
     return;
   }
 
