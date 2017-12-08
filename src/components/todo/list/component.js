@@ -45,7 +45,7 @@ class TodoList extends React.Component {
                       translateX: 200,
                     }}>
           {this.state.todos.map(({ id, value }) => (
-            <af-li key={id} scope="todo" data-id={id} data-value={value} />
+            <li key={id} af-scope="todo" data-id={id} data-value={value} />
           ))}
         </Transition>
       </af_view-todo-list>
