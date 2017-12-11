@@ -1,7 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Transition from 'react-motion-ui-pack'
-import TodoListElement from './element';
+import Transition from 'react-motion-ui-pack';
 
 class TodoList extends React.Component {
   get todoInput() {
@@ -20,22 +18,19 @@ class TodoList extends React.Component {
     super(props);
 
     this._currId = 0;
-
-    this.afScopes = {
-      todo: {
-        removeTodo: this.removeTodo.bind(this),
-      }
-    };
   }
 
   render() {
     return (
-      <af_view-todo-list>
-        <add-btn onClick={onAddBtnClick.bind(this)} />
-        <todo-input onKeyDown={onTodoInputKeyDown.bind(this)}
-                    ref={ref => this.todoInput = ref} />
+      <af-todo-list-view>
+        <span af-name="add-btn" onClick={onAddBtnClick.bind(this)} />
+        <span af-name="todo-input"
+              onKeyDown={onTodoInputKeyDown.bind(this)}
+              ref={ref => this.todoInput = ref} />
 
-        <Transition component="todos"
+        <Transition component="ul"
+                    af-name="todos"
+                    duration="1000"
                     enter={{
                       opacity: 1,
                       translateX: 0,
@@ -48,7 +43,7 @@ class TodoList extends React.Component {
             <li key={id} af-scope="todo" data-id={id} data-value={value} />
           ))}
         </Transition>
-      </af_view-todo-list>
+      </af-todo-list-view>
     );
   }
 
@@ -93,21 +88,5 @@ function onTodoInputKeyDown(e) {
 
   this.submitTodoInput();
 }
-
-TodoListElement.implement({
-  get options() {
-    return {
-      events: {
-        stopPropagation: true,
-      }
-    };
-  },
-
-  render(container, data, callback) {
-    ReactDOM.render(<TodoList {...data} />, container, function () {
-      callback(this);
-    });
-  }
-});
 
 export default TodoList;

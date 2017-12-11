@@ -1,6 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import TodoItemElement from './element';
 
 class TodoItem extends React.Component {
   constructor(props) {
@@ -28,15 +26,15 @@ class TodoItem extends React.Component {
     };
 
     return (
-      <af_view-todo-item>
-        <check-box onClick={this.toggleCheck.bind(this)}>
-          {this.state.checked && <check />}
-        </check-box>
+      <af-todo-item-view>
+        <span af-name="check-box" onClick={this.toggleCheck.bind(this)}>
+          {this.state.checked && <span af-name="check" />}
+        </span>
 
-        <todo style={todoStyle}>{this.state.value}</todo>
+        <span af-name="todo" style={todoStyle}>{this.state.value}</span>
 
-        <rm-btn onClick={this.props.removeTodo.bind(this, this.props.id)} />
-      </af_view-todo-item>
+        <span af-name="rm-btn" onClick={this.props.removeTodo.bind(this, this.props.id)} />
+      </af-todo-item-view>
     );
   }
 
@@ -46,22 +44,5 @@ class TodoItem extends React.Component {
     });
   }
 }
-
-TodoItemElement.implement({
-  get options() {
-    return {
-      dependent: true,
-      events: {
-        stopPropagation: true,
-      }
-    };
-  },
-
-  render(container, data, callback) {
-    ReactDOM.render(<TodoItem {...data} />, container, function () {
-      callback(this);
-    });
-  }
-});
 
 export default TodoItem;
