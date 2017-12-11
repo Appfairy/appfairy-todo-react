@@ -1,5 +1,5 @@
 import React from 'react';
-import Transition from 'react-motion-ui-pack';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class TodoList extends React.Component {
   get todoInput() {
@@ -28,21 +28,15 @@ class TodoList extends React.Component {
               onKeyDown={onTodoInputKeyDown.bind(this)}
               ref={ref => this.todoInput = ref} />
 
-        <Transition component="ul"
-                    af-name="todos"
-                    duration="1000"
-                    enter={{
-                      opacity: 1,
-                      translateX: 0,
-                    }}
-                    leave={{
-                      opacity: 0,
-                      translateX: 200,
-                    }}>
+        <ReactCSSTransitionGroup component="ul"
+                                 af-name="todos"
+                                 transitionName="todo"
+                                 transitionEnterTimeout={500}
+                                 transitionLeaveTimeout={500}>
           {this.state.todos.map(({ id, value }) => (
             <li key={id} af-scope="todo" data-id={id} data-value={value} />
           ))}
-        </Transition>
+        </ReactCSSTransitionGroup>
       </af-todo-list-view>
     );
   }
