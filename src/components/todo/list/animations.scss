@@ -1,0 +1,23 @@
+#af-view {
+  .todo-enter {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+
+  .todo-enter.todo-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 500ms;
+  }
+
+  .todo-leave {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .todo-leave.todo-leave-active {
+    opacity: 0;
+    transform: translateX(200px);
+    transition: all 500ms;
+  }
+}

@@ -1,0 +1,61 @@
+@import '../variables';
+
+#af-view {
+  $text-color: white;
+  $margin: 15px;
+
+  display: flex;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  height: 80px;
+  width: $list-width;
+  border-bottom: 1px solid $text-color;
+
+  .check-box {
+    $size: 30px;
+    $cursor: pointer;
+
+    float: left;
+    margin-left: $margin;
+    width: $size;
+    height: $size;
+    color: $text-color;
+    border: 3px solid $text-color;
+    border-radius: 6px;
+    font-size: $size;
+    line-height: $size;
+    text-align: center;
+    cursor: $cursor;
+
+    .check {
+      cursor: $cursor;
+    }
+  }
+
+  .todo {
+    $font-size: 25px;
+
+    color: $text-color;
+    float: left;
+    margin-left: 20px;
+    line-height: $font-size;
+    font-size: $font-size;
+  }
+
+  .rm-btn {
+    $size: 25px;
+
+    position: absolute;
+    right: $margin;
+    color: white;
+    background-color: #F44336;
+    width: $size;
+    height: $size;
+    border-radius: $size;
+    line-height: $size;
+    text-align: center;
+    cursor: pointer;
+  }
+}
