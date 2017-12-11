@@ -23,13 +23,13 @@ class TodoList extends React.Component {
   render() {
     return (
       <af-todo-list-view>
-        <span af-name="add-btn" onClick={onAddBtnClick.bind(this)} />
-        <span af-name="todo-input"
+        <span af-plug="add-btn" onClick={onAddBtnClick.bind(this)} />
+        <span af-plug="todo-input"
               onKeyDown={onTodoInputKeyDown.bind(this)}
               ref={ref => this.todoInput = ref} />
 
         <ReactCSSTransitionGroup component="ul"
-                                 af-name="todos"
+                                 af-plug="todos"
                                  transitionName="todo"
                                  transitionEnterTimeout={500}
                                  transitionLeaveTimeout={500}>

@@ -27,13 +27,13 @@ class TodoItem extends React.Component {
 
     return (
       <af-todo-item-view>
-        <span af-name="check-box" onClick={this.toggleCheck.bind(this)}>
-          {this.state.checked && <span af-name="check" />}
+        <span af-plug="check-box" onClick={this.toggleCheck.bind(this)}>
+          {this.state.checked && <span af-plug="check" />}
         </span>
 
-        <span af-name="todo" style={todoStyle}>{this.state.value}</span>
+        <span af-plug="todo" style={todoStyle}>{this.state.value}</span>
 
-        <span af-name="rm-btn" onClick={this.props.removeTodo.bind(this, this.props.id)} />
+        <span af-plug="rm-btn" onClick={this.props.removeTodo.bind(this, this.props.id)} />
       </af-todo-item-view>
     );
   }
