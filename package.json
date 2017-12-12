@@ -1,9 +1,8 @@
 {
-  "name": "appfairy-react-todo",
-  "version": "0.1.0",
+  "name": "appfairy-todo-react",
   "private": true,
   "dependencies": {
-    "appfairy": "0.1.1",
+    "appfairy": "^0.1.1",
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",
     "babel-eslint": "7.2.3",
@@ -75,7 +74,8 @@
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
     ],
     "moduleNameMapper": {
-      "^react-native$": "react-native-web"
+      "^react-native$": "react-native-web",
+      "~/(.+)$": "<rootDir>/src/$1"
     },
     "moduleFileExtensions": [
       "web.js",

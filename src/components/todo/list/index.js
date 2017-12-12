@@ -2,17 +2,16 @@ import Appfairy from 'appfairy';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import animations from './animations.scss';
+import { css, html } from '~/common/todo/list';
 import TodoList from './component';
-import styleSheet from './style.scss';
-import viewHTML from './view.html';
 
 class TodoListView extends Appfairy.View(HTMLElement) {
   initializeStyle(style) {
-    style.innerHTML = styleSheet + animations;
+    style.innerHTML = css + animations;
   }
 
   initializeView(view) {
-    view.innerHTML = viewHTML;
+    view.innerHTML = html;
   }
 }
 
