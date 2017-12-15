@@ -2,7 +2,7 @@
   "name": "appfairy-todo-react",
   "private": true,
   "dependencies": {
-    "appfairy": "^0.1.1",
+    "appfairy": "^0.1.2",
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",
     "babel-eslint": "7.2.3",
@@ -34,7 +34,6 @@
     "promise": "8.0.1",
     "raf": "3.4.0",
     "react": "^16.1.1",
-    "react-addons-css-transition-group": "^15.6.2",
     "react-dev-utils": "^4.2.1",
     "react-dom": "^16.1.1",
     "sass-loader": "^6.0.6",

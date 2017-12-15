@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class TodoList extends React.Component {
   get todoInput() {
@@ -28,15 +27,11 @@ class TodoList extends React.Component {
               onKeyDown={onTodoInputKeyDown.bind(this)}
               ref={ref => this.todoInput = ref} />
 
-        <ReactCSSTransitionGroup component="ul"
-                                 af-plug="todos"
-                                 transitionName="todo"
-                                 transitionEnterTimeout={500}
-                                 transitionLeaveTimeout={500}>
+        <ul af-plug="todos">
           {this.state.todos.map(({ id, value }) => (
             <li key={id} af-scope="todo" data-id={id} data-value={value} />
           ))}
-        </ReactCSSTransitionGroup>
+        </ul>
       </af-todo-list-view>
     );
   }
