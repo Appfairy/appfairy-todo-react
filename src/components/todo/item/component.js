@@ -1,26 +1,13 @@
 import React from 'react';
 
 class TodoItem extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      checked: false,
-      value: props.value,
-    };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const nextState = {};
-
-    if (nextProps.value !== this.state.value) {
-      nextState.value = nextProps.value;
-    }
-
-    this.setState(nextState);
+  state = {
+    checked: false
   }
 
   render() {
+    const { id, value } = this.props.todo;
+
     const todoStyle = {
       textDecoration: this.state.checked && 'line-through'
     };
@@ -31,9 +18,8 @@ class TodoItem extends React.Component {
           {this.state.checked && <span af-plug="check" />}
         </span>
 
-        <span af-plug="todo" style={todoStyle}>{this.state.value}</span>
-
-        <span af-plug="rm-btn" onClick={this.props.removeTodo.bind(this, this.props.id)} />
+        <span af-plug="todo" style={todoStyle}>{value}</span>
+        <span af-plug="rm-btn" onClick={this.props.removeTodo.bind(this, id)} />
       </af-todo-item-view>
     );
   }

@@ -6,12 +6,6 @@ import ReactDOM from 'react-dom';
 import TodoList from './component';
 
 class TodoListElement extends Appfairy.Element(HTMLElement) {
-  get options() {
-    return {
-      useMountPoint: false
-    };
-  }
-
   get childScopes() {
     return {
       todo: {

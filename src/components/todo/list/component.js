@@ -28,8 +28,8 @@ class TodoList extends React.Component {
               ref={ref => this.todoInput = ref} />
 
         <ul af-plug="todos">
-          {this.state.todos.map(({ id, value }) => (
-            <li key={id} af-scope="todo" data-id={id} data-value={value} />
+          {this.state.todos.map(todo => (
+            <li key={todo.id} af-scope="todo" data-todo={JSON.stringify(todo)} />
           ))}
         </ul>
       </af-todo-list-view>

@@ -8,8 +8,7 @@ import TodoItem from './component';
 class TodoItemElement extends Appfairy.Element(HTMLElement) {
   get options() {
     return {
-      dependent: true,
-      useMountPoint: false,
+      dependent: true
     };
   }
 
