@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom';
 import App from './app';
 import registerServiceWorker from './registerServiceWorker';
 
-Appfairy.Config.defaultOptions = {
+Appfairy.config.defaultOptions = {
   useMountPoint: false
 };
 
