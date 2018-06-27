@@ -1,12 +1,18 @@
+import '~/common/todo/list';
+
+import Appfairy from 'appfairy';
 import React from 'react';
+import ReactDOM from 'react-dom';
+
+const hash = prop => new Appfairy.Reference(prop);
 
 class TodoList extends React.Component {
   get todoInput() {
-    return this._todoInput.target;
+    return this._todoInput;
   }
 
   set todoInput(ref) {
-    return this._todoInput = ref;
+    this._todoInput = ref && ref.target;
   }
 
   state = {
@@ -16,7 +22,7 @@ class TodoList extends React.Component {
   constructor(props) {
     super(props);
 
-    this._currId = 0;
+    this.currId = 0;
   }
 
   render() {
@@ -29,7 +35,9 @@ class TodoList extends React.Component {
 
         <ul af-plug="todos">
           {this.state.todos.map(todo => (
-            <li key={todo.id} af-scope="todo" data-todo={JSON.stringify(todo)} />
+            <li key={todo.id}
+                data-todo={hash(todo)}
+                data-remove-todo={hash(this.removeTodo.bind(this))} />
           ))}
         </ul>
       </af-todo-list-view>
@@ -47,7 +55,7 @@ class TodoList extends React.Component {
 
   addTodo(todo) {
     this.state.todos.push({
-      id: this._currId++,
+      id: this.currId++,
       value: todo,
     });
 
@@ -78,4 +86,10 @@ function onTodoInputKeyDown(e) {
   this.submitTodoInput();
 }
 
-export default TodoList;
+class TodoListElement extends Appfairy.Element(HTMLElement) {
+  render(el, data) {
+    ReactDOM.render(<TodoList {...data} />, el);
+  }
+}
+
+Appfairy.Element.define('todo-list', TodoListElement);

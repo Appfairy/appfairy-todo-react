@@ -1,4 +1,8 @@
+import '~/common/todo/item';
+
+import Appfairy from 'appfairy';
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 class TodoItem extends React.Component {
   state = {
@@ -31,4 +35,16 @@ class TodoItem extends React.Component {
   }
 }
 
-export default TodoItem;
+class TodoItemElement extends Appfairy.Element(HTMLElement) {
+  get options() {
+    return {
+      dependent: true
+    };
+  }
+
+  render(el, data) {
+    ReactDOM.render(<TodoItem {...data} />, el);
+  }
+}
+
+Appfairy.Element.define('todo-item', TodoItemElement);
